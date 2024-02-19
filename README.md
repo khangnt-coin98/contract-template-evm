@@ -11,3 +11,13 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.ts
 ```
+
+# Required Tools
+
+**Extension:**
+
+-   [Solidity Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
+
+```shell
+code --install-extension JuanBlanco.solidity
+```
