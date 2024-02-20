@@ -1,0 +1,38 @@
+name: Deploy and Test
+
+on: push
+
+jobs:
+  build:
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: |
+          npm i
+
+      - name: Compile
+        run: |
+          npx hardhat compile
+
+      - name: Test
+        run: |
+          npx hardhat test
+
+      - name: Deploy
+        # Hard-code user mnemonic
+        env:
+          MNEMONIC: ${{secrets.MNEMONIC}}
+        run: |
+          touch .env
+          echo MNEMONIC = "$MNEMONIC" >> .env 
+          npx hardhat run --network tomo_testnet scripts/deploy.ts
+          rm .env

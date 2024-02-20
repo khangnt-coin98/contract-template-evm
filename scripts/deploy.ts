@@ -5,9 +5,10 @@ async function main() {
   const unlockTime = currentTimestampInSeconds + 60;
 
   const lockedAmount = ethers.parseEther("0.001");
+  const lockContract = await ethers.getContractFactory("Lock");
 
-  const lock = await ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
+  const lock = await lockContract.deploy(unlockTime, {
+    value: lockedAmount, gasLimit: 400000
   });
 
   await lock.waitForDeployment();
