@@ -1,8 +1,7 @@
 name: Deploy and Test
 
-on:
-  branches:
-    - dev
+on: push
+
 jobs:
   build:
     runs-on: macOS-latest
