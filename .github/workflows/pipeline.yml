@@ -1,7 +1,8 @@
 name: Deploy and Test
 
 on:
-  workflow_dispatch:
+  branches:
+    - dev
 jobs:
   build:
     runs-on: macOS-latest
