@@ -16,7 +16,7 @@ npx hardhat run scripts/deploy.ts
 
 **Extension:**
 
--   [Solidity Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
+-   [Solidity Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=NomicFoundation.hardhat-solidity)
 
 ```shell
 code --install-extension JuanBlanco.solidity
